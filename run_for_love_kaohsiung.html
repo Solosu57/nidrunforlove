@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Run for Love 高雄場 '26 — 用運動的力量，為偏鄉孩子送上一件跑衣</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --red:#E63946;--red-dk:#C1121F;--red-lt:rgba(230,57,70,.12);
+  --gold:#F0B429;--gold-dk:#D4930F;--gold-lt:rgba(240,180,41,.14);
+  --blue:#4F8FFF;--blue-dk:#2563EB;--blue-lt:rgba(79,143,255,.14);
+  --green:#34D399;--green-lt:rgba(52,211,153,.14);
+  --orange:#FB923C;--orange-lt:rgba(251,146,60,.09);
+  --ink:#FFFFFF;--muted:rgba(255,255,255,.62);--cream:#141414;--white:#FFFFFF;
+  --radius:14px;
+  --font-display:'Bebas Neue','Arial Black',sans-serif;
+  --font-body:'Noto Sans TC',sans-serif;
+  --font-mono:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#000;color:var(--ink);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;}
+
+.marquee-wrap{overflow:hidden;padding:11px 0;}
+.mq-red{background:var(--red);color:#fff;border-bottom:3px solid var(--ink);}
+.mq-warm{background:var(--red-lt);color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite;}
+.marquee-track.rev{animation-direction:reverse;animation-duration:24s;}
+.marquee-track span{padding:0 28px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.1em;white-space:nowrap;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.hero{background:#000;color:var(--white);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(230,57,70,.16) 0%,transparent 55%),radial-gradient(ellipse at 20% 70%,rgba(240,180,41,.08) 0%,transparent 50%);pointer-events:none;}
+.hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;opacity:.65;margin-bottom:18px;text-transform:uppercase;}
+.hero-title{font-family:var(--font-display);font-size:clamp(68px,17vw,136px);line-height:.88;letter-spacing:.02em;margin-bottom:10px;}
+.run-word{color:var(--red);}
+.love-word{color:var(--gold);}
+.hero-subtitle{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;opacity:.75;margin-bottom:8px;}
+.hero-tagline-main{font-size:18px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.hero-tagline-sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:40px;}
+.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:680px;margin:0 auto;}
+.hero-meta span{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 18px;font-size:13px;backdrop-filter:blur(10px);}
+.hero-meta strong{color:var(--red);}
+
+section{padding:64px 24px;}
+.section-inner{max-width:900px;margin:0 auto;}
+.section-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;border:1.5px solid currentColor;display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:16px;text-transform:uppercase;opacity:.9;}
+.section-title{font-family:var(--font-display);font-size:clamp(40px,8vw,72px);line-height:1;margin-bottom:8px;}
+.section-sub{font-size:15px;max-width:560px;line-height:1.75;}
+
+/* Mission */
+.mission-section{background:var(--cream);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+.mission-section .section-tag{color:var(--gold);}
+.mission-section .section-sub{color:var(--muted);max-width:640px;}
+.mission-section .section-sub strong{color:var(--gold);}
+.why-blocks{margin-top:36px;display:flex;flex-direction:column;gap:18px;}
+.why-block{background:rgba(240,180,41,.08);border:1px solid rgba(240,180,41,.28);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:22px 24px;}
+.why-label{font-family:var(--font-display);font-size:22px;letter-spacing:.02em;margin-bottom:8px;color:var(--white);}
+.why-tag{display:inline-block;background:var(--gold);color:#141414;border-radius:6px;padding:3px 12px;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:.08em;}
+.why-desc{font-size:14px;color:rgba(255,255,255,.75);line-height:1.75;}
+
+/* Events */
+.events-section{background:var(--red-lt);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+.events-section .section-tag{color:var(--red-dk);}
+.events-section .section-title{color:var(--white);}
+.events-section .section-sub{color:var(--muted);}
+.events-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px;}
+.event-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:var(--radius);padding:26px 24px;display:grid;grid-template-columns:68px 1fr;gap:18px;align-items:start;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.event-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;}
+.event-card.ev-red::before{background:var(--red);}
+.event-card.ev-gold::before{background:var(--gold);}
+.event-card.ev-blue::before{background:var(--blue);}
+.event-card.ev-green::before{background:var(--green);}
+.event-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.2);}
+.event-icon{width:68px;height:68px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid var(--ink);}
+.ev-red .event-icon{background:var(--red-lt);}
+.ev-gold .event-icon{background:var(--gold-lt);}
+.ev-blue .event-icon{background:var(--blue-lt);}
+.ev-green .event-icon{background:var(--green-lt);}
+.event-tag-sm{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+.ev-red .event-tag-sm{color:var(--red);}
+.ev-gold .event-tag-sm{color:var(--gold-dk);}
+.ev-blue .event-tag-sm{color:var(--blue);}
+.ev-green .event-tag-sm{color:var(--green);}
+.event-name{font-size:20px;font-weight:900;margin-bottom:6px;}
+.event-desc{font-size:13px;color:var(--muted);line-height:1.65;}
+.event-badge{display:inline-block;color:var(--white);font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:10px;margin-right:6px;font-family:var(--font-mono);letter-spacing:.04em;}
+.ev-red .event-badge{background:var(--red);}
+.ev-gold .event-badge{background:var(--gold-dk);}
+.ev-blue .event-badge{background:var(--blue);}
+.ev-green .event-badge{background:var(--green);color:#141414;}
+
+/* Orgs */
+.orgs-section{background:var(--cream);border-bottom:3px solid var(--ink);}
+.orgs-section .section-tag{color:var(--blue);}
+.orgs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;}
+.org-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;}
+.org-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;}
+.org-nid::before{background:var(--red);}
+.org-dbt::before{background:var(--gold);}
+.org-name{font-size:18px;font-weight:900;margin-bottom:4px;}
+.org-role{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;opacity:.6;}
+.org-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.org-stat{text-align:center;}
+.org-stat-n{font-family:var(--font-display);font-size:28px;line-height:1;}
+.org-nid .org-stat-n{color:var(--red);}
+.org-dbt .org-stat-n{color:var(--gold);}
+.org-stat-l{font-size:11px;color:var(--muted);margin-top:2px;}
+.org-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+@media(max-width:600px){.orgs-grid{grid-template-columns:1fr;}}
+
+/* Schedule */
+.schedule-section{background:#0a0a0a;border-top:3px solid var(--ink);}
+.schedule-section .section-tag{color:var(--red);}
+.schedule-list{margin-top:36px;display:flex;flex-direction:column;gap:2px;}
+.sched-item{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.sched-item:last-child{border-bottom:none;}
+.sched-time{font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--red);padding-top:3px;}
+.sched-content{}
+.sched-name{font-size:16px;font-weight:700;margin-bottom:4px;}
+.sched-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* Charity */
+.charity-section{background:var(--cream);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+.charity-section .section-tag{color:var(--gold);}
+.charity-box{background:rgba(240,180,41,.08);border:2px solid rgba(240,180,41,.3);border-radius:var(--radius);padding:28px;margin-top:28px;}
+.charity-org-name{font-size:20px;font-weight:900;color:var(--gold);margin-bottom:8px;}
+.charity-desc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
+.charity-targets{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.charity-target{background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);border-radius:10px;padding:14px;text-align:center;}
+.charity-target-num{font-family:var(--font-display);font-size:28px;color:var(--gold);}
+.charity-target-name{font-size:13px;font-weight:700;color:var(--white);margin:4px 0 2px;}
+.charity-target-desc{font-size:11px;color:var(--muted);}
+.love-steps{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+.love-step{flex:1 1 200px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:24px 20px;}
+.step-num{font-family:var(--font-display);font-size:52px;line-height:1;margin-bottom:8px;}
+.step-num.c1{color:var(--gold);}
+.step-num.c2{color:var(--green);}
+.step-num.c3{color:var(--red);}
+.step-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.step-desc{font-size:13px;color:rgba(255,255,255,.68);line-height:1.65;}
+
+/* Form */
+.form-section{background:var(--cream);border-top:3px solid var(--ink);}
+.form-section .section-tag{color:var(--red);}
+.form-box{background:var(--cream);border:2.5px solid var(--ink);border-radius:16px;padding:40px 36px;max-width:680px;margin:36px auto 0;}
+.form-group{margin-bottom:22px;}
+.form-group label{display:block;font-size:13.5px;font-weight:700;margin-bottom:8px;color:var(--ink);}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:2px solid rgba(255,255,255,.22);border-radius:8px;padding:11px 14px;font-size:15px;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s;resize:vertical;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(230,57,70,.15);}
+.form-hint{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6;}
+.form-divider{border:none;border-top:2px dashed rgba(255,255,255,.22);margin:26px 0;}
+.radio-group{display:flex;flex-wrap:wrap;gap:9px;}
+.radio-btn label{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 16px;border:2px solid rgba(255,255,255,.22);border-radius:8px;transition:border-color .18s,background .18s;font-size:14px;font-weight:500;}
+.radio-btn label:hover{border-color:var(--red);background:var(--red-lt);}
+.radio-btn input{width:15px;height:15px;accent-color:var(--red);}
+.checkbox-group{display:flex;flex-direction:column;gap:9px;}
+.check-item{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 14px;border:2px solid rgba(255,255,255,.22);border-radius:9px;transition:border-color .18s,background .18s;}
+.check-item:hover{border-color:var(--red);background:var(--red-lt);}
+.check-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--red);flex-shrink:0;}
+.check-item span{font-size:14px;font-weight:500;}
+.team-box{background:rgba(230,57,70,.07);border:2px solid rgba(230,57,70,.3);border-radius:12px;padding:20px;margin-top:10px;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.team-grid input{padding:9px 12px;font-size:13px;border:2px solid rgba(255,255,255,.22);border-radius:8px;width:100%;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s;}
+.team-grid input:focus{outline:none;border-color:var(--red);}
+.member-rows{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.member-row{display:grid;grid-template-columns:2fr 1fr;gap:8px;}
+.member-row input,.member-row select{padding:9px 12px;font-size:13px;border:2px solid rgba(255,255,255,.22);border-radius:8px;width:100%;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s;}
+.member-row input:focus,.member-row select:focus{outline:none;border-color:var(--red);}
+@media(max-width:600px){.member-row{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}}
+.category-hint{font-size:12px;color:var(--gold);margin-top:8px;line-height:1.6;}
+.donate-box{background:rgba(52,211,153,.07);border:2px solid rgba(52,211,153,.25);border-radius:12px;padding:18px;margin-top:10px;}
+.donate-box p{font-size:13px;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:8px;}
+.signup-rules{margin-top:14px;background:rgba(240,180,41,.10);border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;}
+.signup-rules-title{font-size:13.5px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+.signup-rules ul{margin:0;padding-left:18px;list-style:disc;}
+.signup-rules li{font-size:13px;color:rgba(255,255,255,.82);line-height:1.95;}
+.signup-rules strong{color:var(--gold);}
+.consent-section{background:var(--cream);border:2px solid var(--ink);border-radius:var(--radius);padding:18px;margin:20px 0 16px;}
+.consent-label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;}
+.consent-label input[type="checkbox"]{margin-top:2px;width:18px;height:18px;accent-color:var(--red);flex-shrink:0;cursor:pointer;}
+.consent-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.rules-toggle summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--gold);padding:8px 0;list-style:revert;}
+.rules-toggle p{margin:6px 0 0;padding-left:2px;color:var(--muted);font-size:13px;line-height:1.65;}
+.rules-toggle p strong{color:var(--ink);}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--red) 0%,var(--red-dk) 100%);color:#fff;font-family:var(--font-display);font-size:22px;letter-spacing:.07em;padding:18px;border:3px solid var(--ink);border-radius:10px;cursor:pointer;transition:filter .2s,transform .12s;margin-top:6px;}
+.btn-submit:hover{filter:brightness(1.1);transform:translateY(-2px);}
+#success-message{display:none;text-align:center;background:linear-gradient(135deg,#140a0a 0%,#2a0a0a 100%);color:var(--white);border-radius:16px;padding:48px 32px;border:3px solid var(--red);}
+#success-message .success-icon{font-size:54px;margin-bottom:16px;}
+#success-message h3{font-family:var(--font-display);font-size:36px;letter-spacing:.06em;margin-bottom:12px;}
+#success-message p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:24px;line-height:1.8;}
+.line-btn{display:inline-block;background:#06C755;color:var(--white);font-family:var(--font-body);font-weight:700;font-size:15px;padding:14px 32px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);letter-spacing:.04em;}
+footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;}
+@media(max-width:700px){
+  .event-card{grid-template-columns:1fr;}
+  .event-icon{display:none;}
+  .love-step{flex:1 1 100%;}
+  .form-box{padding:28px 18px;}
+  .charity-targets{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE TOP -->
+<div class="marquee-wrap mq-red">
+  <div class="marquee-track">
+    <span>RUN FOR LOVE</span><span>♥</span><span>高雄場</span><span>♥</span><span>10.17.2026</span><span>♥</span><span>用運動送出愛</span><span>♥</span>
+    <span>RUN FOR LOVE</span><span>♥</span><span>高雄場</span><span>♥</span><span>10.17.2026</span><span>♥</span><span>用運動送出愛</span><span>♥</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">NID RUN CLUB × 暴龍運動訓練營 D.B.T SPORTS · 2026</p>
+  <h1 class="hero-title">
+    <span class="run-word">RUN</span><br>
+    <span class="love-word">FOR</span><br>
+    <span style="color:var(--white);">LOVE</span>
+  </h1>
+  <p class="hero-subtitle">高雄場 · 10.17.2026</p>
+  <p class="hero-tagline-main">用運動的力量，為偏鄉孩子送上一件跑衣</p>
+  <p class="hero-tagline-sub">苓雅運動園區 · 17:00 開始</p>
+  <div class="hero-meta">
+    <span><strong>日期</strong> 10月17日（六）</span>
+    <span><strong>時間</strong> 17:00 開始</span>
+    <span><strong>地點</strong> 苓雅運動園區</span>
+    <span><strong>主辦</strong> NID Run Club × 暴龍 D.B.T</span>
+    <span><strong>公益</strong> 捐好好捐協會</span>
+  </div>
+</section>
+
+<!-- MARQUEE 2 -->
+<div class="marquee-wrap mq-warm">
+  <div class="marquee-track rev">
+    <span>NID RUN CLUB</span><span>·</span><span>KAOHSIUNG</span><span>·</span><span>跑步 × 公益 × 籃球</span><span>·</span><span>D.B.T SPORTS</span><span>·</span>
+    <span>NID RUN CLUB</span><span>·</span><span>KAOHSIUNG</span><span>·</span><span>跑步 × 公益 × 籃球</span><span>·</span><span>D.B.T SPORTS</span><span>·</span>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="section-inner">
+    <span class="section-tag" style="color:var(--gold);">活動理念</span>
+    <h2 class="section-title">為什麼<br>我們跑</h2>
+    <p class="section-sub">每一步，都是給偏鄉孩子的禮物。<strong>Run for Love</strong> 由 NID Run Club 發起，台北已連續舉辦超過 5 年。這次，我們把愛帶到高雄。</p>
+    <div class="why-blocks">
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">跨世代</span> 大人跑步，孩子打球</div>
+        <p class="why-desc">NID 帶大人跑大隊接力，暴龍帶孩子做 NBA 體測。不同年齡層，不同運動，同一個下午，為同一件事。</p>
+      </div>
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">公益</span> 一件跑衣的重量</div>
+        <p class="why-desc">當天捐出全新跑衣，透過捐好好捐協會媒合給偏鄉弱勢孩童。一件跑衣，可能是他們繼續跑下去的理由。</p>
+      </div>
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">在地</span> 高雄運動社群的力量</div>
+        <p class="why-desc">號召高雄各大跑團一起參與，讓運動公益真正在地扎根，讓每一位高雄跑者都成為改變的一份子。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section">
+  <div class="section-inner">
+    <span class="section-tag">比賽項目</span>
+    <h2 class="section-title">活動項目</h2>
+    <p class="section-sub" style="color:var(--muted);">大人跑步、孩子打球，還有趣味競賽和公益捐衣，全家都能一起玩。</p>
+    <div class="events-grid">
+
+      <div class="event-card ev-red">
+        <div class="event-icon">🏃</div>
+        <div>
+          <p class="event-tag-sm">大人 · 6人團體</p>
+          <h3 class="event-name">大人組 6人趣味競賽</h3>
+          <p class="event-desc">6 人一組，完成趣味任務後接力跑步，考驗默契與速度。不論男女都可以混組參加，笑鬧多於競技。</p>
+          <span class="event-badge">6人一隊</span><span class="event-badge">男女混合</span><span class="event-badge">趣味任務</span>
+        </div>
+      </div>
+
+      <div class="event-card ev-gold">
+        <div class="event-icon">🏀</div>
+        <div>
+          <p class="event-tag-sm">孩子 · 6人團體</p>
+          <h3 class="event-name">小孩組 6人趣味競賽</h3>
+          <p class="event-desc">由暴龍教練設計，適合國小生參加的趣味競賽，讓孩子在比賽中學習團隊合作，享受運動樂趣。</p>
+          <span class="event-badge">6人一隊</span><span class="event-badge">國小生</span><span class="event-badge">暴龍設計</span>
+        </div>
+      </div>
+
+      <div class="event-card ev-blue">
+        <div class="event-icon">⚡</div>
+        <div>
+          <p class="event-tag-sm">大人 · 個人</p>
+          <h3 class="event-name">大人男女 400M 競賽</h3>
+          <p class="event-desc">個人 400M 計時賽，男女分開組別，全力衝刺，決出各組最強跑者。</p>
+          <span class="event-badge">男生組</span><span class="event-badge">女生組</span><span class="event-badge">400M 計時</span>
+        </div>
+      </div>
+
+      <div class="event-card ev-green">
+        <div class="event-icon">🔥</div>
+        <div>
+          <p class="event-tag-sm">大人 + 孩子 · 6人</p>
+          <h3 class="event-name">大人 × 小孩 6人大隊接力</h3>
+          <p class="event-desc">大人與小孩混合組隊，6 人接力，跑完回來才能交棒。大手牽小手，一起衝過終點線。</p>
+          <span class="event-badge">大人 + 小孩</span><span class="event-badge">6人接力</span><span class="event-badge">親子同樂</span>
+        </div>
+      </div>
+
+      <div class="event-card ev-gold">
+        <div class="event-icon">🏅</div>
+        <div>
+          <p class="event-tag-sm">孩子 · 個人體驗</p>
+          <h3 class="event-name">NBA 體測體驗</h3>
+          <p class="event-desc">由暴龍運動訓練營提供，讓孩子以 NBA 標準化體測了解自己的體能數據，建立努力的方向與目標。大人也可以報名參加！</p>
+          <span class="event-badge">NBA 標準</span><span class="event-badge">大人也可參加</span><span class="event-badge">現場登記</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ORGS -->
+<section class="orgs-section">
+  <div class="section-inner">
+    <span class="section-tag">主辦單位</span>
+    <h2 class="section-title">關於我們</h2>
+    <p class="section-sub" style="color:var(--muted);">NID Run Club 服務愛運動的大人，暴龍服務愛運動的孩子。受眾不重疊，理念高度一致。</p>
+    <div class="orgs-grid">
+      <div class="org-card org-nid">
+        <p class="org-role">主辦單位</p>
+        <h3 class="org-name">NID Run Club</h3>
+        <div class="org-stat-row">
+          <div class="org-stat"><div class="org-stat-n">10+</div><div class="org-stat-l">年台北深耕</div></div>
+          <div class="org-stat"><div class="org-stat-n">700+</div><div class="org-stat-l">台高雄學員</div></div>
+        </div>
+        <p class="org-desc">Run for Love 發起單位，台北已連辦超過 5 年。高雄設有 10 個班級，橫跨苓雅、三民、左營、鼓山各區域，每週固定開課。</p>
+      </div>
+      <div class="org-card org-dbt">
+        <p class="org-role">共同主辦</p>
+        <h3 class="org-name">暴龍運動訓練營</h3>
+        <div class="org-stat-row">
+          <div class="org-stat"><div class="org-stat-n">50+</div><div class="org-stat-l">高雄據點</div></div>
+          <div class="org-stat"><div class="org-stat-n">90%</div><div class="org-stat-l">家長續班率</div></div>
+        </div>
+        <p class="org-desc">2020 年創立，深耕高雄 5 年，遍佈高雄全區與屏東。以青少年籃球教育為核心，100% 合規場地，公司化合規經營。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="section-inner">
+    <span class="section-tag" style="color:var(--red);">活動流程</span>
+    <h2 class="section-title">當天時間表</h2>
+    <div class="schedule-list">
+      <div class="sched-item"><div class="sched-time">13:00</div><div class="sched-content"><div class="sched-name">工作人員 + 廠商進場</div><div class="sched-desc">場地佈置、動線確認、攤位設置</div></div></div>
+      <div class="sched-item"><div class="sched-time">16:00</div><div class="sched-content"><div class="sched-name">報到 · 物資發放 · 捐衣</div><div class="sched-desc">參與者報到、發放活動物資、現場收取捐贈跑衣</div></div></div>
+      <div class="sched-item"><div class="sched-time">16:30</div><div class="sched-content"><div class="sched-name">大合照</div><div class="sched-desc">全體參與者合照留念</div></div></div>
+      <div class="sched-item"><div class="sched-time">16:40</div><div class="sched-content"><div class="sched-name">開幕式 · 致詞</div><div class="sched-desc">主辦方致詞、活動說明、來賓介紹</div></div></div>
+      <div class="sched-item"><div class="sched-time">16:50</div><div class="sched-content"><div class="sched-name">分組熱身</div><div class="sched-desc">NID 帶大人熱身 · 暴龍帶小朋友熱身（同時進行）</div></div></div>
+      <div class="sched-item"><div class="sched-time">17:00</div><div class="sched-content"><div class="sched-name" style="color:var(--red);">正式比賽開始</div><div class="sched-desc">大人趣味競賽、400M 個人賽、大隊接力 · 小孩組趣味競賽、NBA 體測（同時進行）</div></div></div>
+      <div class="sched-item"><div class="sched-time">19:00</div><div class="sched-content"><div class="sched-name">頒獎 · 抽獎</div><div class="sched-desc">完賽紀念、各項目頒獎、贊助廠商抽獎</div></div></div>
+      <div class="sched-item"><div class="sched-time">19:20</div><div class="sched-content"><div class="sched-name">自由交流 · 拍照</div><div class="sched-desc">參與者自由互動、合照留念</div></div></div>
+      <div class="sched-item"><div class="sched-time">19:40</div><div class="sched-content"><div class="sched-name" style="color:var(--gold);">捐衣成果公布 · 結語</div><div class="sched-desc">公布本次捐衣數量，感謝致詞</div></div></div>
+      <div class="sched-item"><div class="sched-time">20:00</div><div class="sched-content"><div class="sched-name">撤場</div><div class="sched-desc">工作人員清理場地，恢復原狀</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARITY -->
+<section class="charity-section">
+  <div class="section-inner">
+    <span class="section-tag" style="color:var(--gold);">公益合作</span>
+    <h2 class="section-title">我們要做<br>一件好事</h2>
+    <p class="section-sub" style="color:var(--muted);">每位參與者當天帶一件全新的跑衣來捐，由「捐好好捐協會」協助媒合，送到真正需要的人手上。</p>
+
+    <div class="charity-box">
+      <div class="charity-org-name">社團法人臺灣捐好好捐協會</div>
+      <p class="charity-desc">源於運動圈發起、成立的機能服飾轉贈平台，目的在於資助台灣弱勢孩童、基層運動選手、政府安置機構及各身心障礙養護院等，確保每一件捐出的跑衣真正送到需要的人手上。</p>
+      <div class="charity-targets">
+        <div class="charity-target"><div class="charity-target-num">❶</div><div class="charity-target-name">台灣弱勢孩童</div><div class="charity-target-desc">提供運動機會與裝備支持</div></div>
+        <div class="charity-target"><div class="charity-target-num">❷</div><div class="charity-target-name">基層運動選手</div><div class="charity-target-desc">資助資源不足的基層選手</div></div>
+        <div class="charity-target"><div class="charity-target-num">❸</div><div class="charity-target-name">政府安置機構</div><div class="charity-target-desc">協助院童的運動需求</div></div>
+        <div class="charity-target"><div class="charity-target-num">❹</div><div class="charity-target-name">身心障礙養護院</div><div class="charity-target-desc">支持身心障礙者運動參與</div></div>
+      </div>
+    </div>
+
+    <div class="love-steps">
+      <div class="love-step"><div class="step-num c1">01</div><div class="step-title">帶來全新跑衣</div><p class="step-desc">活動報到時，帶一件全新的機能跑衣來捐，現場統一收取。</p></div>
+      <div class="love-step"><div class="step-num c2">02</div><div class="step-title">公益媒合</div><p class="step-desc">活動結束後，由捐好好捐協會整理，媒合偏鄉有需求的孩子。</p></div>
+      <div class="love-step"><div class="step-num c3">03</div><div class="step-title">送達偏鄉</div><p class="step-desc">跑衣送達偏鄉，讓熱愛運動的孩子也能有好裝備繼續前進。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="section-inner">
+    <span class="section-tag" style="color:var(--red);">立刻報名</span>
+    <h2 class="section-title">我要參加</h2>
+    <p class="section-sub" style="color:var(--muted);">選擇你想參加的項目，填妥資料送出。收到確認信即代表報名成功。</p>
+
+    <div class="form-box">
+      <form id="reg-form">
+
+        <!-- 基本資料 -->
+        <div class="form-group">
+          <label>姓名 *</label>
+          <input type="text" id="name" name="name" placeholder="請填寫本名" required/>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>手機號碼 *</label>
+          <input type="tel" id="phone" name="phone" placeholder="09xx-xxx-xxx" required/>
+        </div>
+
+        <hr class="form-divider"/>
+
+        <!-- 報名項目 -->
+        <div class="form-group">
+          <label>報名項目 * <span style="font-weight:400;color:var(--muted);">（可複選）</span></label>
+          <div class="checkbox-group">
+            <label class="check-item"><input type="checkbox" name="events" value="大人組6人趣味競賽"/><span>🏃 大人組 6人趣味競賽</span></label>
+            <label class="check-item"><input type="checkbox" name="events" value="小孩組6人趣味競賽"/><span>🏀 小孩組 6人趣味競賽（國小生）</span></label>
+            <label class="check-item" id="race-400m-check"><input type="checkbox" name="events" value="400M個人競賽" id="ev-400m"/><span>⚡ 大人 400M 個人競賽</span></label>
+            <label class="check-item"><input type="checkbox" name="events" value="大人小孩6人大隊接力"/><span>🔥 大人 × 小孩 6人大隊接力</span></label>
+            <label class="check-item"><input type="checkbox" name="events" value="NBA體測體驗"/><span>🏅 NBA 體測體驗（現場登記亦可）</span></label>
+          </div>
+        </div>
+
+        <!-- 400M 性別 -->
+        <div class="form-group" id="gender-section" style="display:none;">
+          <label>400M 競賽組別 *</label>
+          <div class="radio-group">
+            <div class="radio-btn"><label><input type="radio" name="gender_400m" value="男"/> 男生組</label></div>
+            <div class="radio-btn"><label><input type="radio" name="gender_400m" value="女"/> 女生組</label></div>
+          </div>
+        </div>
+
+        <!-- 隊伍資訊 -->
+        <div class="form-group" id="team-section" style="display:none;">
+          <label>隊伍資訊</label>
+          <div class="team-box">
+            <div class="form-group" style="margin-bottom:12px;">
+              <label style="font-size:12px;">隊伍名稱</label>
+              <input type="text" id="team-name" name="team_name" placeholder="幫你的隊伍取個名字！"/>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label style="font-size:12px;">隊員姓名（含自己）</label>
+              <div class="member-rows" id="member-rows">
+                <div class="member-row"><input type="text" placeholder="隊員 1（自己）"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+                <div class="member-row"><input type="text" placeholder="隊員 2"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+                <div class="member-row"><input type="text" placeholder="隊員 3"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+                <div class="member-row"><input type="text" placeholder="隊員 4"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+                <div class="member-row"><input type="text" placeholder="隊員 5"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+                <div class="member-row"><input type="text" placeholder="隊員 6"/><select><option value="">性別</option><option>男</option><option>女</option></select></div>
+              </div>
+              <p class="category-hint">大隊接力每隊至少一位女性 · 大人組請確認所有隊員年齡</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 跑團 -->
+        <div class="form-group">
+          <label>所屬跑團 / 組織 <span style="font-weight:400;color:var(--muted);">（選填）</span></label>
+          <input type="text" id="club" name="club" placeholder="例：高雄夜跑團、NID Run Club、無跑團..."/>
+        </div>
+
+        <!-- 公益捐衣 -->
+        <hr class="form-divider"/>
+        <div class="form-group">
+          <label>公益捐衣 💚</label>
+          <div class="donate-box">
+            <p>當天帶一件全新機能跑衣（任何品牌皆可），現場捐出，由「捐好好捐協會」媒合送達偏鄉孩童。</p>
+            <div class="radio-group">
+              <div class="radio-btn"><label><input type="radio" name="donate" value="yes" checked/> 我願意捐一件跑衣 ❤️</label></div>
+              <div class="radio-btn"><label><input type="radio" name="donate" value="no"/> 這次先跑步就好</label></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="signup-rules">
+          <div class="signup-rules-title">報名注意事項</div>
+          <ul>
+            <li>報名截止：額滿為止</li>
+            <li>活動當天攜帶身分證件，憑證報到</li>
+            <li>若遇雨天，前一天晚上 23:00 前 Email 及社群公告是否取消</li>
+            <li>捐衣請攜帶<strong>全新</strong>機能跑衣，請勿捐贈二手或非機能衣物</li>
+          </ul>
+        </div>
+
+        <!-- 免責聲明 -->
+        <div class="consent-section">
+          <label class="consent-label">
+            <input type="checkbox" id="consent-cb"/>
+            <span class="consent-text">
+              <details class="rules-toggle">
+                <summary>📋 活動免責聲明與參加規範（點擊展開閱讀）</summary>
+                <p><strong>1.</strong> 本人出於自由意志同意參與恩艾迪有限公司及暴龍陽光企業社共同主辦的活動。本人已詳細閱覽本活動相關說明及規定，知悉本活動具有一定的風險，本人同意承擔本活動可能發生之所有風險。</p>
+                <p><strong>2.</strong> 為將本活動可能產生之風險降至最低，本人遵守本活動相關規定及配合工作人員的指示，做好自我管理，避免造成自己或他人人身上傷害或財產上損失，並承諾在本活動期間不會從事不正當行為。</p>
+                <p><strong>3.</strong> 本人知悉本活動不包含保險，如須個人保險，請自行加保。</p>
+                <p><strong>4.</strong> 本人同意並授權主辦單位拍攝、使用、公開展示本人之肖像、名字、聲音等，於本活動中所拍攝之作品。（若不希望使用，請提前告知）</p>
+                <p><strong>5.</strong> 本人聲明並保證健康狀況良好，無心臟病、高血壓、糖尿病、氣喘及其他重大疾病，健康狀況適合參加本活動。若活動中發生任何意外事件，願自行負責。</p>
+                <p><strong>6.</strong> 主辦單位保有修改、變更或暫停本活動之權利。參加者一旦參加本活動，則表示同意接受本辦法之規範。</p>
+                <p><strong>7.</strong> 此活動不提供寄物服務，對於隨身物品不負保管責任，請盡量避免攜帶貴重物品。</p>
+                <p><strong>8.</strong> 本活動不得將名額轉讓他人，若經查證屬實，將取消報名資格。</p>
+                <p><strong>9.</strong> 完成報名之參加者，視為同意以上聲明。</p>
+              </details>
+              本人已閱讀並同意上述活動免責聲明與參加規範。
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">SEND IT → 立刻報名</button>
+      </form>
+
+      <div id="success-message">
+        <div class="success-icon">❤️</div>
+        <h3>報名成功！</h3>
+        <p>感謝你的參與！確認信會在幾分鐘內寄到你的信箱。<br/>記得當天帶一件全新跑衣，一起為偏鄉孩子做一件好事。</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);">10月17日，苓雅運動園區見 🏃</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER MARQUEE -->
+<div class="marquee-wrap mq-red">
+  <div class="marquee-track">
+    <span>RUN FOR LOVE</span><span>♥</span><span>高雄場</span><span>♥</span><span>10.17.2026</span><span>♥</span><span>NID RUN CLUB × D.B.T SPORTS</span><span>♥</span>
+    <span>RUN FOR LOVE</span><span>♥</span><span>高雄場</span><span>♥</span><span>10.17.2026</span><span>♥</span><span>NID RUN CLUB × D.B.T SPORTS</span><span>♥</span>
+  </div>
+</div>
+
+<footer>© NID Run Club × 暴龍運動訓練營 · Run for Love 高雄場 '26 · 苓雅運動園區 · MADE WITH ♥ IN KAOHSIUNG</footer>
+
+<script>
+// Show/hide 400M gender section
+document.getElementById('ev-400m').addEventListener('change', function(){
+  document.getElementById('gender-section').style.display = this.checked ? 'block' : 'none';
+});
+
+// Show/hide team section when team events are selected
+var teamEvents = ['大人組6人趣味競賽','小孩組6人趣味競賽','大人小孩6人大隊接力'];
+document.querySelectorAll('input[name="events"]').forEach(function(cb){
+  cb.addEventListener('change', function(){
+    var selected = Array.from(document.querySelectorAll('input[name="events"]:checked')).map(function(el){return el.value;});
+    var needsTeam = selected.some(function(v){return teamEvents.indexOf(v) !== -1;});
+    document.getElementById('team-section').style.display = needsTeam ? 'block' : 'none';
+  });
+});
+
+// Form submit
+document.getElementById('reg-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var events = Array.from(document.querySelectorAll('input[name="events"]:checked')).map(function(el){return el.value;});
+  var consent = document.getElementById('consent-cb').checked;
+
+  if(!name){alert('請填寫姓名');return;}
+  if(!email || !email.includes('@')){alert('請填寫正確的 Email');return;}
+  if(events.length === 0){alert('請選擇至少一個報名項目');return;}
+  if(!consent){alert('請閱讀並同意活動免責聲明');return;}
+
+  var btn = this.querySelector('.btn-submit');
+  btn.textContent = '送出中...';
+  btn.disabled = true;
+
+  // TODO: Replace with your Google Apps Script URL
+  var GOOGLE_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+  var fd = new FormData();
+  fd.append('name', name);
+  fd.append('email', email);
+  fd.append('phone', phone);
+  fd.append('events', events.join('、'));
+  fd.append('club', document.getElementById('club').value.trim());
+  fd.append('team_name', document.getElementById('team-name').value.trim());
+  fd.append('donate', document.querySelector('input[name="donate"]:checked').value);
+  var gender400m = document.querySelector('input[name="gender_400m"]:checked');
+  fd.append('gender_400m', gender400m ? gender400m.value : '');
+
+  if(GOOGLE_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE'){
+    // Demo mode
+    document.getElementById('reg-form').style.display = 'none';
+    document.getElementById('success-message').style.display = 'block';
+    return;
+  }
+
+  fetch(GOOGLE_SCRIPT_URL, {method:'POST', body:fd, mode:'no-cors'})
+    .then(function(){
+      document.getElementById('reg-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+    })
+    .catch(function(){
+      alert('送出失敗，請再試一次');
+      btn.textContent = 'SEND IT → 立刻報名';
+      btn.disabled = false;
+    });
+});
+</script>
+</body>
+</html>
